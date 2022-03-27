@@ -26,19 +26,26 @@ const SignUpForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (password !== confirmPassword) {return;}
+    if (password !== confirmPassword) {
+      alert('passwords do not match');
+      return;
+    }
 
     try {
       const { user } = await createAuthUserWithEmailAndPassword(email, password);
-      
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
 
     } catch(error) {
-      if (error.code === 'auth/email-already-in-use') {
-        alert('Cannot create user, email already in use');
-      } else {
-        console.log(error);
+      switch(error.code) {
+        case 'auth/email-already-in-use':
+          alert('cannot create user, email already in use');
+          break;
+        case 'auth/weak-password':
+          alert('password should be at least 6 characters');
+          break;
+        default:
+          console.log(error);
       }
     }
   };
