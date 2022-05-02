@@ -1,4 +1,6 @@
-.sign-in-container {
+import styled from 'styled-components';
+
+export const SignUpContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 380px;
@@ -10,9 +12,4 @@
   span {
     font-size: small;
   }
-  
-  .buttons-container {
-    display: flex;
-    justify-content: space-between;
-  }
-}
+`;
