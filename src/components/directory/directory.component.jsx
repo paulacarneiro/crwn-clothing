@@ -4,7 +4,7 @@ import { DirectoryContainer } from './directory.styles';
 
 const categories = [
   {
-    id: 1,
+    id: 11,
     title: 'Hats',
     imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
     route: 'shop/hats'
