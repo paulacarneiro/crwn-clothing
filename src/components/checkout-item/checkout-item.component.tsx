@@ -1,11 +1,7 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  addItemToCart,
-  removeItemFromCart,
-  clearItemFromCart,
-} from '../../store/cart/cart.action';
+import { addItemToCart, removeItemFromCart, clearItemFromCart } from '../../store/cart/cart.action';
 import { selectCartItems } from '../../store/cart/cart.selector';
 import { CartItem } from '../../store/cart/cart.types';
 
@@ -26,10 +22,8 @@ const CheckoutItem: FC<CheckoutItemProps> = ({ cartItem }) => {
   const cartItems = useSelector(selectCartItems);
 
   const addItemHandler = () => dispatch(addItemToCart(cartItems, cartItem));
-  const removeItemHandler = () =>
-    dispatch(removeItemFromCart(cartItems, cartItem));
-  const clearItemHandler = () =>
-    dispatch(clearItemFromCart(cartItems, cartItem));
+  const removeItemHandler = () => dispatch(removeItemFromCart(cartItems, cartItem));
+  const clearItemHandler = () => dispatch(clearItemFromCart(cartItems, cartItem));
 
   return (
     <CheckoutItemContainer>
@@ -48,11 +42,8 @@ const CheckoutItem: FC<CheckoutItemProps> = ({ cartItem }) => {
       </Quantity>
       <span className='price'>{price}</span>
       <RemoveButton onClick={clearItemHandler}>&#10005;</RemoveButton>
-
-      {/* <button onClick={() => removeItemFromCart(cartItem)}>Decrement</button>
-      <button onClick={() => addItemToCart(cartItem)}>Increment</button> */}
     </CheckoutItemContainer>
   );
 };
 
-export default CheckoutItem;
+export default memo(CheckoutItem);
