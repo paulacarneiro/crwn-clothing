@@ -5,11 +5,9 @@ import { AuthError, AuthErrorCodes } from 'firebase/auth';
 import FormInput from '../form-input/form-input.component';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
+import { googleSignInStart, emailSignInStart } from '../../store/user/user.action';
+
 import { SignInContainer, ButtonsContainer } from './sign-in-form.styles';
-import {
-  googleSignInStart,
-  emailSignInStart,
-} from '../../store/user/user.action';
 
 const defaultFormFields = {
   email: '',
@@ -80,11 +78,7 @@ const SignInForm = () => {
 
         <ButtonsContainer>
           <Button type='submit'>Sign in</Button>
-          <Button
-            type='button'
-            buttonType={BUTTON_TYPE_CLASSES.google}
-            onClick={signInWithGoogle}
-          >
+          <Button type='button' buttonType={BUTTON_TYPE_CLASSES.google} onClick={signInWithGoogle}>
             Google sign in
           </Button>
         </ButtonsContainer>

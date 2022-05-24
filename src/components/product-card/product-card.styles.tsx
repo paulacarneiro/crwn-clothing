@@ -1,5 +1,21 @@
 import styled from 'styled-components';
 
+import Button from '../button/button.component';
+
+export const AddToCartButton = styled(Button)`
+  width: 80%;
+  opacity: 0.7;
+  position: absolute;
+  top: 255px;
+  display: none;
+
+  @media screen and (max-width: 800px) {
+    display: block;
+    opacity: 0.9;
+    padding: 0 5%;
+  }
+`;
+
 export const ProductCardContainer = styled.div`
   width: 100%;
   display: flex;
@@ -15,22 +31,34 @@ export const ProductCardContainer = styled.div`
     margin-bottom: 5px;
   }
 
-  button {
+  /* button {
     width: 80%;
     opacity: 0.7;
     position: absolute;
     top: 255px;
     display: none;
-  }
+  } */
 
   &:hover {
     img {
       opacity: 0.8;
     }
 
-    button {
+    ${AddToCartButton} {
       opacity: 0.85;
       display: flex;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    &:hover {
+      img {
+        opacity: unset;
+      }
+
+      ${AddToCartButton} {
+        opacity: unset;
+      }
     }
   }
 `;

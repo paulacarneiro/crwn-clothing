@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SignInContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 380px;
+  flex: 1 0 auto;
 
   h2 {
     margin: 10px 0;
@@ -15,6 +15,27 @@ export const SignInContainer = styled.div`
 `;
 
 export const ButtonsContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  /* justify-content: space-between; */
+  & > * {
+    width: 100%;
+    margin: 0 10px;
+    /* width: 45%; */
+  }
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+
+    & > * {
+      margin: 10px auto;
+    }
+  }
+
+  @media screen and (max-width: 8000px) {
+    & > * {
+      margin: 5px auto;
+    }
+  }
 `;

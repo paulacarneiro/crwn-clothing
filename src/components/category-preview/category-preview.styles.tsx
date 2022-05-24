@@ -17,10 +17,16 @@ export const Title = styled(Link)`
   font-weight: 400;
   margin-bottom: 25px;
   cursor: pointer;
+  outline: none;
 `;
 
 export const Preview = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 20px;
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+  }
 `;

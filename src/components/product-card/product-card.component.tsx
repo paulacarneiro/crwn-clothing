@@ -7,7 +7,7 @@ import { CategoryItem } from '../../store/categories/category.types';
 
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
-import { ProductCardContainer, Footer } from './product-card.styles';
+import { ProductCardContainer, Footer, AddToCartButton } from './product-card.styles';
 
 type ProductCardProps = {
   product: CategoryItem;
@@ -27,12 +27,9 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         <span className='name'>{name}</span>
         <span className='price'>{price} &#x20AC;</span>
       </Footer>
-      <Button
-        buttonType={BUTTON_TYPE_CLASSES.inverted}
-        onClick={addProductToCart}
-      >
+      <AddToCartButton buttonType={BUTTON_TYPE_CLASSES.inverted} onClick={addProductToCart}>
         Add to cart
-      </Button>
+      </AddToCartButton>
     </ProductCardContainer>
   );
 };
