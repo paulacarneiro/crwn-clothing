@@ -6,10 +6,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Built with
 
-React
-TypeScript
-Redux
+- React
+- TypeScript
+- Redux
 
-Styled Components
-Firebase
-Stipe API
+- Styled Components
+- Firebase
+- Stipe API
